@@ -1,0 +1,32 @@
+.todo{
+    width: 410px;
+    height: 50px;
+    display: flex;
+    background-color: #fff;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 10px;
+
+}
+.todo_container{
+    display: flex;
+    width: 100%;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+}
+.todo-btn{
+    width: 40px;
+    height: 46px;
+    position: absolute;
+    right: 0%;
+    border: none;
+    background-color: #fff;
+}
+.todo_container h2{
+    margin-top: 10px;
+}
