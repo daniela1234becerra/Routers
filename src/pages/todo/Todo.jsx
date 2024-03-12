@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Todo.css'
-import { Link } from 'react-router-dom'
-
+import { Link, useOutletContext } from 'react-router-dom'
+import Card from '../../components/button/Card/Card'
 
 const Todo = () => {
+  const [todos, setTodos] = useOutletContext()
+
+  const deleteTodo = (title) => {
+    setTodos(todos.filter(todo => todo.title !== title));
+  }
+
   return (
     <div>
-      <div className='todo'>
-        <div className='todo_container'>
-          <h2>To do</h2>
-        </div>
-        <button className='todo-btn'>X</button>
-      </div>
+      <h2>TODO LIST </h2>
+      {todos.map((todo) => {
+        return (
+          <Card key={todo.title} todo={todo} onDelete={deleteTodo} />
+        )
+      })}
+      <Link to="/form">
+        <button className='main-btn'>NewTodo</button>
+      </Link>
     </div>
   )
 }

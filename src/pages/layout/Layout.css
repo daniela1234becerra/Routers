@@ -37,10 +37,16 @@
     flex-wrap: wrap;
     background-color: #D9D9D9;
     padding: 35px;
-    min-height: 500px;      
+    min-height: 500px;     
+    justify-content: center; 
   }
   button{
     width: 100px;
     height: 30px;
   }
   
+  .main-btn{
+    width: 100px;
+    height: 30px;
+    margin-top: 320px;
+  }

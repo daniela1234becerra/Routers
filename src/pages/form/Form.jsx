@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './Form.css'
-import { Link } from 'react-router-dom'
-
+import { Link, useOutletContext, useNavigate } from 'react-router-dom'
 
 const Form = () => {
 
+  const navigate = useNavigate()
+  const [todos, setTodos] = useOutletContext()
   const [values, setValues] = useState({
     title: "",
     description: "",
@@ -19,13 +20,17 @@ const Form = () => {
     });
   };
 
+
   const handleForms = (event) => {
     event.preventDefault()
     console.log(values)
+    setTodos([...todos, values])
+    navigate('/')
   }
 
   return (
     <div>
+      <h2>NEW TODO</h2>
       <form action="" onSubmit={handleForms}>
         <div className='title'>
           <label htmlFor="title">Title</label>
@@ -61,13 +66,9 @@ const Form = () => {
           />
         </div>
 
-        <button type='submit' className='button'>Submit</button>
+        <button type='submit'>Submit</button>
       </form>
-      <button>
-        <Link to="/">
-          <button className='button'>Home</button>
-        </Link>
-      </button>
+
     </div>
   )
 }

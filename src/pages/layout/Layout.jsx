@@ -1,20 +1,23 @@
-import React from 'react'
+import {useState} from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import './Layout.css'
-import {Button} from '../../components/button/Button'
+
+
 
 const Layout = () => {
+
+    const [todos, setTodos] = useState([]) 
+
     return (
         <div className="Layout">
             <header className="Layout-header">
-                <h1>TODO LIST</h1>
+                {/* <h1>TODO</h1> */}
             </header>
             <body className='Layout-container'>
                 <div className='container'>
-                    <Outlet />
+                    <Outlet context={[todos, setTodos]}/>
                 </div>
             </body>
-            <Button />
         </div>
     )
 }
